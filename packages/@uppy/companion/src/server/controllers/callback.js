@@ -18,6 +18,7 @@ module.exports = function callback (req, res, next) {
   }
 
   const grant = req.session.grant || {}
+  console.log('_______ GRANT RESPONSE:', grant.response)
   if (grant.response && grant.response.access_token) {
     req.companion.providerTokens[providerName] = grant.response.access_token
     logger.debug(`Generating auth token for provider ${providerName}`, null, req.id)
